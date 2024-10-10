@@ -1,0 +1,441 @@
+ubuntu@ip-172-31-34-57:~$ docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+Digest: sha256:d2eb56950b84efe34f966a2b92efb1a1a2ea53e7e93b94cdf45a27cf3cd47fc0
+Status: Image is up to date for nginx:latest
+docker.io/library/nginx:latest
+ubuntu@ip-172-31-34-57:~$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED      SIZE
+nginx        latest    7f553e8bbc89   7 days ago   192MB
+ubuntu@ip-172-31-34-57:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED        STATUS        PORTS                                   NAMES
+13a1b5679ea5   nginx     "/docker-entrypoint.…"   21 hours ago   Up 21 hours   0.0.0.0:8083->80/tcp, :::8083->80/tcp   nginx3
+e71f67565be3   nginx     "/docker-entrypoint.…"   21 hours ago   Up 21 hours   0.0.0.0:8082->80/tcp, :::8082->80/tcp   nginx2
+ubuntu@ip-172-31-34-57:~$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED        STATUS        PORTS                                   NAMES
+13a1b5679ea5   nginx     "/docker-entrypoint.…"   21 hours ago   Up 21 hours   0.0.0.0:8083->80/tcp, :::8083->80/tcp   nginx3
+e71f67565be3   nginx     "/docker-entrypoint.…"   21 hours ago   Up 21 hours   0.0.0.0:8082->80/tcp, :::8082->80/tcp   nginx2
+ubuntu@ip-172-31-34-57:~$ docker run -d --name guvi1 -p 8081:80 nginx
+d90dfd7def919ef69826e69cfd48a1a539c8738ef15f75a47454c1765b0634d1
+ubuntu@ip-172-31-34-57:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                   NAMES
+d90dfd7def91   nginx     "/docker-entrypoint.…"   8 seconds ago   Up 7 seconds   0.0.0.0:8081->80/tcp, :::8081->80/tcp   guvi1
+13a1b5679ea5   nginx     "/docker-entrypoint.…"   21 hours ago    Up 21 hours    0.0.0.0:8083->80/tcp, :::8083->80/tcp   nginx3
+e71f67565be3   nginx     "/docker-entrypoint.…"   21 hours ago    Up 21 hours    0.0.0.0:8082->80/tcp, :::8082->80/tcp   nginx2
+ubuntu@ip-172-31-34-57:~$ docker rm 13a1b5679ea5
+Error response from daemon: You cannot remove a running container 13a1b5679ea53b2818e6a3e021b4233d7a4300f94a27bd136f38aa09bda6088e. Stop the container before attempting removal or force remove
+ubuntu@ip-172-31-34-57:~$ docker stop 13a1b5679ea5
+13a1b5679ea5
+ubuntu@ip-172-31-34-57:~$ docker rm 13a1b5679ea5
+13a1b5679ea5
+ubuntu@ip-172-31-34-57:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                   NAMES
+d90dfd7def91   nginx     "/docker-entrypoint.…"   58 seconds ago   Up 57 seconds   0.0.0.0:8081->80/tcp, :::8081->80/tcp   guvi1
+e71f67565be3   nginx     "/docker-entrypoint.…"   21 hours ago     Up 21 hours     0.0.0.0:8082->80/tcp, :::8082->80/tcp   nginx2
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$ docker volume ls
+DRIVER    VOLUME NAME
+local     Guvi-1
+local     volume1
+ubuntu@ip-172-31-34-57:~$ docker volume create Taskvolume
+Taskvolume
+ubuntu@ip-172-31-34-57:~$ volume ls
+volume: command not found
+ubuntu@ip-172-31-34-57:~$ docker volume ls
+DRIVER    VOLUME NAME
+local     Guvi-1
+local     Taskvolume
+local     volume1
+ubuntu@ip-172-31-34-57:~$ docker volume inspect Guvi-1
+[
+    {
+        "CreatedAt": "2024-10-09T13:31:30Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/Guvi-1/_data",
+        "Name": "Guvi-1",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+ubuntu@ip-172-31-34-57:~$ docker rm  volume1
+Error response from daemon: No such container: volume1
+ubuntu@ip-172-31-34-57:~$ docker rm volume1
+Error response from daemon: No such container: volume1
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$
+ubuntu@ip-172-31-34-57:~$ docker volume ls
+DRIVER    VOLUME NAME
+local     Guvi-1
+local     Taskvolume
+local     volume1
+ubuntu@ip-172-31-34-57:~$ docker volume create test
+test
+ubuntu@ip-172-31-34-57:~$ docker volume ls
+DRIVER    VOLUME NAME
+local     Guvi-1
+local     Taskvolume
+local     test
+local     volume1
+ubuntu@ip-172-31-34-57:~$ docker volume inspect Test
+[]
+Error response from daemon: get Test: no such volume
+ubuntu@ip-172-31-34-57:~$ docker volume inspect test
+[
+    {
+        "CreatedAt": "2024-10-10T10:36:05Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/test/_data",
+        "Name": "test",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+ubuntu@ip-172-31-34-57:~$ docker volume rm test
+test
+ubuntu@ip-172-31-34-57:~$ docker volume ls
+DRIVER    VOLUME NAME
+local     Guvi-1
+local     Taskvolume
+local     volume1
+ubuntu@ip-172-31-34-57:~$ docker inspect d90dfd7def91
+[
+    {
+        "Id": "d90dfd7def919ef69826e69cfd48a1a539c8738ef15f75a47454c1765b0634d1",
+        "Created": "2024-10-10T10:31:54.213738438Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "nginx",
+            "-g",
+            "daemon off;"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 6456,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2024-10-10T10:31:54.788430774Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:7f553e8bbc897571642d836b31eaf6ecbe395d7641c2b24291356ed28f3f2bd0",
+        "ResolvConfPath": "/var/lib/docker/containers/d90dfd7def919ef69826e69cfd48a1a539c8738ef15f75a47454c1765b0634d1/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/d90dfd7def919ef69826e69cfd48a1a539c8738ef15f75a47454c1765b0634d1/hostname",
+        "HostsPath": "/var/lib/docker/containers/d90dfd7def919ef69826e69cfd48a1a539c8738ef15f75a47454c1765b0634d1/hosts",
+        "LogPath": "/var/lib/docker/containers/d90dfd7def919ef69826e69cfd48a1a539c8738ef15f75a47454c1765b0634d1/d90dfd7def919ef69826e69cfd48a1a539c8738ef15f75a47454c1765b0634d1-json.log",
+        "Name": "/guvi1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {
+                "80/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8081"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                48,
+                157
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/5568bfda588adfbbfa1aedef613c045f846616db5fe56c96c9bf43da94a06859-init/diff:/var/lib/docker/overlay2/a290320a3bde9767467d30282528f447bb87d102ebe4e03d27f503d6dfea1e2b/diff:/var/lib/docker/overlay2/772df6c2dffd441b7de03993b0dc78f951a95881843f514f34a1ce577acaf8bb/diff:/var/lib/docker/overlay2/346240fab32897d6e92c62a7547740489abef93f9d670a2d6a181b81c3b6b6d8/diff:/var/lib/docker/overlay2/cdde615829a171a53f5d17496f1efe93494c6620a110ea01317751a5fd11f69d/diff:/var/lib/docker/overlay2/7beabac71bd29fc556d4cd6b17984fc1ede377df9b87bfb1621ffb4230707c0c/diff:/var/lib/docker/overlay2/e932efd45662866d1aadf569b5c9c55afebb283598b342750f47903d743773a4/diff:/var/lib/docker/overlay2/ea75ec20ef120c0416c677c4459cd0405ee3ca03a09299ba707da3201efc4368/diff",
+                "MergedDir": "/var/lib/docker/overlay2/5568bfda588adfbbfa1aedef613c045f846616db5fe56c96c9bf43da94a06859/merged",
+                "UpperDir": "/var/lib/docker/overlay2/5568bfda588adfbbfa1aedef613c045f846616db5fe56c96c9bf43da94a06859/diff",
+                "WorkDir": "/var/lib/docker/overlay2/5568bfda588adfbbfa1aedef613c045f846616db5fe56c96c9bf43da94a06859/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "d90dfd7def91",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.27.2",
+                "NJS_VERSION=0.8.6",
+                "NJS_RELEASE=1~bookworm",
+                "PKG_RELEASE=1~bookworm",
+                "DYNPKG_RELEASE=1~bookworm"
+            ],
+            "Cmd": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "Image": "nginx",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "3c5177b52fab8788382f755ae3174706a1400247305ac75fcef5c7e4762636cc",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8081"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "8081"
+                    }
+                ]
+            },
+            "SandboxKey": "/var/run/docker/netns/3c5177b52fab",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "b08caefee02dad1eb6507dbf27a4525ddff8d313b0ba2fed0bf486214ad2db8c",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:02",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "a49eed67fbaee404551e682766c3048c1c48c60722a7417a55c8fffa35f4bc26",
+                    "EndpointID": "b08caefee02dad1eb6507dbf27a4525ddff8d313b0ba2fed0bf486214ad2db8c",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+ubuntu@ip-172-31-34-57:~$ docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+a49eed67fbae   bridge    bridge    local
+5cb8c9a76726   guvi-1    bridge    local
+b07e5768a57d   host      host      local
+2260d6111632   none      null      local
+ubuntu@ip-172-31-34-57:~$ docker network create QA-Test
+841781f989c20ccd33d4029a70a14c03c16bc56f8f9545c2b1c577ba303821a9
+ubuntu@ip-172-31-34-57:~$ docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+841781f989c2   QA-Test   bridge    local
+a49eed67fbae   bridge    bridge    local
+5cb8c9a76726   guvi-1    bridge    local
+b07e5768a57d   host      host      local
+2260d6111632   none      null      local
+ubuntu@ip-172-31-34-57:~$ docker network inspect QA-Test
+[
+    {
+        "Name": "QA-Test",
+        "Id": "841781f989c20ccd33d4029a70a14c03c16bc56f8f9545c2b1c577ba303821a9",
+        "Created": "2024-10-10T10:38:55.874490898Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {}
+    }
+]
+ubuntu@ip-172-31-34-57:~$ docker network rm QA-Test
+QA-Test
+ubuntu@ip-172-31-34-57:~$ docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+a49eed67fbae   bridge    bridge    local
+5cb8c9a76726   guvi-1    bridge    local
+b07e5768a57d   host      host      local
+2260d6111632   none      null      local
+ubuntu@ip-172-31-34-57:~$
